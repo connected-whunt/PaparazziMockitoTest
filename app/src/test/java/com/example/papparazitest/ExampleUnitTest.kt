@@ -5,14 +5,12 @@ import org.junit.Test
 import org.junit.Assert.*
 
 
-import android.app.Activity
 import android.content.res.Resources
-import android.graphics.Rect
-import android.util.DisplayMetrics
 import android.view.accessibility.AccessibilityNodeInfo
 import android.view.accessibility.AccessibilityNodeProvider
-import androidx.window.layout.WindowMetrics
-import androidx.window.layout.WindowMetricsCalculator
+import app.cash.paparazzi.Paparazzi
+import com.android.ide.common.rendering.api.SessionParams
+import org.junit.Rule
 import org.junit.runner.RunWith
 import org.mockito.junit.MockitoJUnitRunner
 import org.mockito.kotlin.anyVararg
@@ -29,6 +27,12 @@ import org.mockito.kotlin.whenever
  */
 @RunWith(MockitoJUnitRunner::class)
 class ExampleUnitTest {
+
+    @get:Rule
+    val paparazzi = Paparazzi(
+        renderingMode = SessionParams.RenderingMode.SHRINK,
+        showSystemUi = false
+    )
     private val mockInfo: AccessibilityNodeInfo = mock()
 
     private val internalProvider: AccessibilityNodeProvider = mock()

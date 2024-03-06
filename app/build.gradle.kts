@@ -54,6 +54,7 @@ android {
 
 
 dependencies {
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -62,41 +63,20 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    implementation(libs.androidx.window)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.ui.test.junit4)
-    debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
-    implementation(libs.composeConstraintLayout)
-    implementation(libs.daggerAndroid)
-    implementation(libs.fragment)
-    implementation(libs.kotlinxCollectionsImmutable)
-    debugImplementation(libs.showkase)
-    implementation(libs.showkaseAnnotation)
-    implementation(libs.constraintLayout)
-    implementation(libs.timber)
-    implementation(libs.androidXWindow)
     testImplementation(libs.junit)
 
+testImplementation(libs.mockitoKotlin)
+//    testImplementation(libs.mockitoCore)
+    testImplementation(libs.mockitoInline)
 
-//    //next set
+//    api(libs.mockitoKotlin) {
+//        exclude(group = "org.jetbrains.kotlin")
+//    }
+//
+//    api(libs.mockitoInline)
 
-    implementation(libs.kotlinCoroutineTest) {
-        // conflicts with mockito due to direct inclusion of byte buddy
-        exclude(group = "org.jetbrains.kotlinx", module = "kotlinx-coroutines-debug")
-    }
-
-    api(libs.mockitoKotlin) {
-        exclude(group = "org.jetbrains.kotlin")
-    }
-
-    api(libs.mockitoInline)
-
-    api(libs.kotlinCoroutineTest) {
-        // conflicts with mockito due to direct inclusion of byte buddy
-        exclude(group = "org.jetbrains.kotlinx", module = "kotlinx-coroutines-debug")
-    }
+//    api(libs.kotlinCoroutineTest) {
+//        // conflicts with mockito due to direct inclusion of byte buddy
+//        exclude(group = "org.jetbrains.kotlinx", module = "kotlinx-coroutines-debug")
+//    }
 }

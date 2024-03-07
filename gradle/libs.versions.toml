@@ -1,33 +1,18 @@
 [versions]
-agp = "8.2.2" #"8.2.2" is our project , 8.3.0 is latest
+agp = "8.2.2" #"8.2.2" is our project , 8.3.0 is latest, doesn't work either
 kotlin = "1.9.22"
 coreKtx = "1.12.0"
 junitVersion = "4.13.2"
-espressoCore = "3.5.1"
 lifecycleRuntimeKtx = "2.7.0"
 activityCompose = "1.8.2"
 composeBom = "2024.02.02"
 
-timberVersion = "5.0.1"
-window = "1.2.0"
-fragmentVersion = "1.6.2"
-showkaseVersion = "1.0.0-beta18"
-windowVersion = "1.2.0"
-
-# Compose
-kotlinxCollectionsImmutableVersion = "0.3.7"
-
-composeConstraintLayoutVersion = "1.0.1"
-constraintVersion = "2.1.4"
-kotlinCoroutineVersion = "1.8.0"
-mockitoInlineVersion = "4.11.0"
-mockitoKotlinVersion = "4.1.0"
-daggerVersion = "2.47"
+mockitoInlineVersion = "4.11.0" #if using mockito 5.X set java target in gradle to VERSION_11
+mockitoKotlinVersion = "4.1.0" #if using mockito 5.X set java target in gradle to VERSION_11
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
-androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
@@ -35,28 +20,13 @@ androidx-ui = { group = "androidx.compose.ui", name = "ui" }
 androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
 androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
-androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 junit = { group = "junit", name = "junit", version.ref = "junitVersion" }
-androidx-window = { group = "androidx.window", name = "window", version.ref = "window" }
-composeConstraintLayout = { group = "androidx.constraintlayout", name = "constraintlayout-compose", version.ref = "composeConstraintLayoutVersion" }
-constraintLayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintVersion" }
 
-
-#-- next set
-androidXWindow = { group = "androidx.window", name = "window", version.ref = "windowVersion" }
-fragment = { group = "androidx.fragment", name = "fragment", version.ref = "fragmentVersion" }
-
-kotlinxCollectionsImmutable = { group = "org.jetbrains.kotlinx", name = "kotlinx-collections-immutable", version.ref = "kotlinxCollectionsImmutableVersion" }
-showkase = { group = "com.airbnb.android", name = "showkase", version.ref = "showkaseVersion" }
-showkaseAnnotation = { group = "com.airbnb.android", name = "showkase-annotation", version.ref = "showkaseVersion" }
-timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timberVersion" }
-kotlinCoroutineTest = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinCoroutineVersion" }
 mockitoInline = { group = "org.mockito", name = "mockito-inline", version.ref = "mockitoInlineVersion" }
 mockitoKotlin = { group = "org.mockito.kotlin", name = "mockito-kotlin", version.ref = "mockitoKotlinVersion" }
-mockitoCore = { group = "org.mockito.kotlin", name = "mockito-core", version.ref = "mockitoKotlinVersion" }
-daggerAndroid = { group = "com.google.dagger", name = "dagger-android", version.ref = "daggerVersion" }
+mockitoCore = { group = "org.mockito.kotlin", name = "mockito-core", version.ref = "mockitoInlineVersion" }
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }

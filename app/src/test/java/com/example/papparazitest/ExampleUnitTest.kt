@@ -28,11 +28,11 @@ import org.mockito.kotlin.whenever
 @RunWith(MockitoJUnitRunner::class)
 class ExampleUnitTest {
 
-    @get:Rule
-    val paparazzi = Paparazzi(
-        renderingMode = SessionParams.RenderingMode.SHRINK,
-        showSystemUi = false
-    )
+//    @get:Rule
+//    val paparazzi = Paparazzi(
+//        renderingMode = SessionParams.RenderingMode.SHRINK,
+//        showSystemUi = false
+//    )
     private val mockInfo: AccessibilityNodeInfo = mock()
 
     private val internalProvider: AccessibilityNodeProvider = mock()
@@ -62,11 +62,18 @@ class ExampleUnitTest {
 
     @Test
     fun addition_isCorrect() {
+        assertEquals(4, 2 + 2)
+    }
+
+    @Test
+    fun test_mocking() {
         whenever(
             internalProvider.createAccessibilityNodeInfo(4)
         ) doReturn mockInfo
 
         val info = customNodeProvider.createAccessibilityNodeInfo(NumberPickerNodeProvider.VIRTUAL_VIEW_ID_TOP_BUTTON)
+
+        assert(info == mockInfo)
         verify(mockInfo).text = TOP_BUTTON_DESCRIPTION
 
         assertEquals(4, 2 + 2)

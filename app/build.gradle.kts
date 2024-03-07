@@ -4,6 +4,7 @@ plugins {
     id("app.cash.paparazzi") version "1.3.3"
 }
 
+
 android {
     namespace = "com.example.papparazitest"
     compileSdk = 34
@@ -31,6 +32,13 @@ android {
         }
     }
     compileOptions {
+        /**
+         * if using mockito 5.X, set this to VERSION_11, also compiler options / Android Studio settings may need argument updates below
+         *   <component name="Kotlin2JvmCompilerArguments">
+         *     <option name="jvmTarget" value="11" />
+         *   </component>
+         *
+         */
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
@@ -65,18 +73,7 @@ dependencies {
     implementation(libs.androidx.material3)
     testImplementation(libs.junit)
 
-testImplementation(libs.mockitoKotlin)
-//    testImplementation(libs.mockitoCore)
-    testImplementation(libs.mockitoInline)
-
-//    api(libs.mockitoKotlin) {
-//        exclude(group = "org.jetbrains.kotlin")
-//    }
-//
-//    api(libs.mockitoInline)
-
-//    api(libs.kotlinCoroutineTest) {
-//        // conflicts with mockito due to direct inclusion of byte buddy
-//        exclude(group = "org.jetbrains.kotlinx", module = "kotlinx-coroutines-debug")
-//    }
+    testImplementation(libs.mockitoKotlin)
+    testImplementation(libs.mockitoInline) // I think Paparazzi overrides this
+    testImplementation ("org.hamcrest:hamcrest-core:2.2")
 }
